@@ -1,0 +1,23 @@
+{
+  "name": "ss-pipe",
+  "version": "1.0.0",
+  "description": "ss-pipe line is a CI/CD workflow to produce screeenshots for my projects.",
+  "main": "takeScreenshot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/myusf01/ss-pipe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/myusf01/ss-pipe/issues"
+  },
+  "homepage": "https://github.com/myusf01/ss-pipe#readme",
+  "dependencies": {
+    "puppeteer": "^13.0.1"
+  }
+}
