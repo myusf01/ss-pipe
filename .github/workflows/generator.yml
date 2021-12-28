@@ -16,6 +16,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: ${{ github.event.inputs.repo }}
+
       - name: store inputs from package.json
         uses: myrotvorets/info-from-package-json-action@1.0.0
         id: pkg
@@ -29,7 +30,7 @@ jobs:
       - name: create screenshot
         run: |
           npm install
-          npm run ss-start
+          npm run ss-start ${{ steps.pkg.outputs.packageName }} ${{ steps.pkg.outputs.packageHomepage }}
       - name: config AWS
         uses: aws-actions/configure-aws-credentials@v1
         with:
