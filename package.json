@@ -4,7 +4,7 @@
   "description": "ss-pipe line is a CI/CD workflow to produce screeenshots for my projects.",
   "main": "takeScreenshot.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "ss-start": "npm run start takeScreenshot.js"
   },
   "repository": {
     "type": "git",
