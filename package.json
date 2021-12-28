@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/myusf01/ss-pipe#readme",
   "dependencies": {
+    "get-pixels": "^3.3.3",
+    "gif-encoder": "^0.7.2",
     "puppeteer": "^13.0.1"
   }
 }
