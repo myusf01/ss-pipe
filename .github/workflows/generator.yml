@@ -39,4 +39,4 @@ jobs:
           aws-region: eu-central-1
 
       - name: move screenshot to S3 bucket
-        run: aws s3 mv ${{ steps.pkg.outputs.packageName }}.gif s3://mysf-sspipe --acl public-read
+        run: aws s3 mv ${{ steps.pkg.outputs.packageName }}.png s3://mysf-sspipe --acl public-read
