@@ -4,7 +4,8 @@
 const puppeteer = require('puppeteer')
 
 
-const url = 'https://color-palette.vercel.app/'
+const url = process.argv[3]
+const filename = process.argv[2]
 
 async function takeSS() {
     const browser = await puppeteer.launch()
@@ -13,7 +14,7 @@ async function takeSS() {
     await page.goto(url, {
       waitUntil: 'networkidle0'
     })
-    await page.screenshot({ path: 'ss.png' })
+    await page.screenshot({ path: `${filename}.png` })
     await browser.close()
 }
 
