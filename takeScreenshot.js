@@ -1,4 +1,4 @@
-// TODO: Create gif instead of single screenshot fileç
+// TODO: Create gif instead of single screenshot file
 //      
 
 const puppeteer = require('puppeteer')
