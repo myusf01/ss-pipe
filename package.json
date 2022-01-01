@@ -5,9 +5,10 @@
   "main": "takeScreenshot.js",
   "type": "module",
   "scripts": {
-    "start": "node takeScreenshot.js",
+    "screenshot": "node takeScreenshot.js",
     "gif": "node gifShoot.js",
-    "ss-take": "npm run start"
+    "ss-take": "npm run screenshot",
+    "gif-take": "npm run gif"
   },
   "repository": {
     "type": "git",
