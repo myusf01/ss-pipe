@@ -1,10 +1,12 @@
 {
   "name": "ss-pipe",
   "version": "1.0.0",
-  "description": "ss-pipe line is a CI/CD workflow to produce screeenshots for my projects.",
+  "description": "ss-pipe line is a CI/CD workflow to produce screenshots for my projects.",
   "main": "takeScreenshot.js",
+  "type": "module",
   "scripts": {
     "start": "node takeScreenshot.js",
+    "gif": "node gifShoot.js",
     "ss-take": "npm run start"
   },
   "repository": {
