@@ -1,48 +1,40 @@
 import puppeteer from 'puppeteer'
 import jimp from 'jimp'
+import { laptop, mobile } from './dimensions.js'
+
 
 const url = process.argv[4]
 const filename = process.argv[3]
-const device = process.argv[2]
+const device_type = process.argv[2]
+let device
 
-const canvas_laptop = './mockup/canvas-laptop.png'
-const canvas_mobile = './mockup/canvas-mobile.png'
-const laptop = './mockup/laptop.png'
-// 463x963
-const phone = './mockup/phone.png'
+if (device_type === 'mobile') {
+  device = mobile
+} else {
+  device = laptop
+}
 
 async function takeSS() {
-  let canvas
-  let screen
-  let x
-  let y
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
+  await page.setViewport({ width: device.width, height: device.height })
 
-  if (device === 'mobile') {
-    await page.setViewport({ width: 463, height: 963 })
-    x = 38
-    y = 80
+  const canvas = await jimp.read(device.canvas)
+  const mockup = await jimp.read(device.mockup)
 
-    screen = await jimp.read(phone)
-    canvas = await jimp.read(canvas_mobile)
-
-  } else {
-    await page.setViewport({ width: 1505, height: 942 })
-    x = 218
-    y = 33
-    canvas = await jimp.read(canvas_laptop)
-    screen = await jimp.read(laptop)
-  }
 
   await page.goto(url, {
     waitUntil: 'networkidle0'
   })
 
-  await page.screenshot({ type: 'png' }).then(async res => {
-    const image = await jimp.read(res)
-    canvas.blit(image, x, y).blit(screen, 0, 0).writeAsync(`${filename}.png`)
-  })
+  await page.screenshot({ type: 'png' })
+    .then(async res => {
+      const image = await jimp.read(res)
+      canvas
+        .blit(image, device.x, device.y)
+        .blit(mockup, 0, 0)
+        .writeAsync(`${filename}.png`)
+    })
   await browser.close()
 }
 
