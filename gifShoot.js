@@ -85,11 +85,7 @@ async function takeSS() {
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
   await page.setViewport({ width, height })
-  // await page.goto(url, {
-  //   waitUntil: 'networkidle0'
-  // })
-  // await page.screenshot({ path: `${filename}.png` })
-
+  
   await page.goto(url)
   for (let index = 0; index < 45; index++) {
     await page.screenshot({ path: workDir + index + '.png' })

@@ -7,8 +7,11 @@
   "scripts": {
     "screenshot": "node takeScreenshot.js",
     "gif": "node gifShoot.js",
+    "mockup": "node screenshot-with-mockup.js",
     "ss-take": "npm run screenshot",
-    "gif-take": "npm run gif"
+    "gif-take": "npm run gif",
+    "mockup-mobile": "npm run mockup mobile",
+    "mockup-laptop": "npm run mockup laptop"
   },
   "repository": {
     "type": "git",
@@ -24,6 +27,8 @@
   "dependencies": {
     "get-pixels": "^3.3.3",
     "gif-encoder": "^0.7.2",
-    "puppeteer": "^13.0.1"
+    "jimp": "^0.16.1",
+    "puppeteer": "^13.0.1",
+    "sharp": "^0.29.3"
   }
 }
