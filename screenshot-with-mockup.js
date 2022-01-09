@@ -6,13 +6,9 @@ import { laptop, mobile } from './dimensions.js'
 const url = process.argv[4]
 const filename = process.argv[3]
 const device_type = process.argv[2]
-let device
+const device = (device_type === 'mobile') ? mobile : laptop
 
-if (device_type === 'mobile') {
-  device = mobile
-} else {
-  device = laptop
-}
+
 
 async function takeSS() {
   const browser = await puppeteer.launch()

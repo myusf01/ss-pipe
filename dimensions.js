@@ -13,6 +13,6 @@ export const laptop = {
     height: 942,
     width: 1505,
     canvas: './mockup/canvas-laptop.png',
-    mockup: './mockup/canvas-laptop.png'
+    mockup: './mockup/laptop.png'
 
 }

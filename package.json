@@ -1,15 +1,15 @@
 {
   "name": "ss-pipe",
-  "version": "1.0.0",
+  "version": "1.0.9",
   "description": "ss-pipe line is a CI/CD workflow to produce screenshots for my projects.",
   "main": "takeScreenshot.js",
   "type": "module",
   "scripts": {
     "screenshot": "node takeScreenshot.js",
     "gif": "node gifShoot.js",
-    "mockup": "node screenshot-with-mockup.js",
     "ss-take": "npm run screenshot",
     "gif-take": "npm run gif",
+    "mockup": "node screenshot-with-mockup.js",
     "mockup-mobile": "npm run mockup mobile",
     "mockup-laptop": "npm run mockup laptop"
   },
@@ -28,7 +28,6 @@
     "get-pixels": "^3.3.3",
     "gif-encoder": "^0.7.2",
     "jimp": "^0.16.1",
-    "puppeteer": "^13.0.1",
-    "sharp": "^0.29.3"
+    "puppeteer": "^13.0.1"
   }
 }
