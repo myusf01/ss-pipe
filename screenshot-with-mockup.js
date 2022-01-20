@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer'
 import jimp from 'jimp'
-import { laptop, mobile } from './dimensions.js'
+import { laptop, mobile } from './utils'
 
 
 const url = process.argv[4]
