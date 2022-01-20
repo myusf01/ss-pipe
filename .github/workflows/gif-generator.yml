@@ -27,7 +27,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v2
 
-      - name: Create screenshot
+      - name: Create Gif
         run: |
           npm install
           npm run gif-take ${{ steps.pkg.outputs.packageName }} ${{ steps.pkg.outputs.packageHomepage }}
