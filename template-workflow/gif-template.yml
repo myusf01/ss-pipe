@@ -1,0 +1,19 @@
+# Template workflow file to use in repo we want to generate image.
+name: Generate Gif
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  generate-gif:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: dispatch generator
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: Gif Generator.
+          repo: myusf01/ss-pipe
+          token: ${{ secrets.FLOW_TOKEN }}
+          inputs: '{ "repo": "${{ github.repository }}" }'
