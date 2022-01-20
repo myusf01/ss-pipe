@@ -5,13 +5,14 @@
   "main": "takeScreenshot.js",
   "type": "module",
   "scripts": {
-    "screenshot": "node takeScreenshot.js",
-    "gif": "node gifShoot.js",
+    "screenshot": "node ./index.js -t screenshot",
+    "gif": "node ./index.js -t gif ",
+    "mockup": "node ./index.js -t screenshot -m",
     "ss-take": "npm run screenshot",
-    "gif-take": "npm run gif",
-    "mockup": "node screenshot-with-mockup.js",
-    "mockup-mobile": "npm run mockup mobile",
-    "mockup-laptop": "npm run mockup laptop"
+    "gif-take-mobile": "npm run gif -- --device mobile",
+    "gif-take-laptop": "npm run gif -- --device laptop",
+    "mockup-mobile": "npm run mockup -- --device mobile",
+    "mockup-laptop": "npm run mockup -- --device laptop"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
   },
   "homepage": "https://github.com/myusf01/ss-pipe#readme",
   "dependencies": {
+    "commander": "^8.3.0",
     "get-pixels": "^3.3.3",
     "gif-encoder": "^0.7.2",
     "jimp": "^0.16.1",

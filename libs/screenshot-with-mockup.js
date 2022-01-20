@@ -1,16 +1,7 @@
 import puppeteer from 'puppeteer'
 import jimp from 'jimp'
-import { laptop, mobile } from './utils'
 
-
-const url = process.argv[4]
-const filename = process.argv[3]
-const device_type = process.argv[2]
-const device = (device_type === 'mobile') ? mobile : laptop
-
-
-
-async function takeSS() {
+export async function takeSS(url, filename, device) {
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
   await page.setViewport({ width: device.width, height: device.height })
@@ -34,5 +25,4 @@ async function takeSS() {
   await browser.close()
 }
 
-takeSS()
 
