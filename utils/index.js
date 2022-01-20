@@ -1,4 +1,4 @@
-import { mobile, laptop } from "./dimensions.js";
+import { mobile, laptop } from "./deviceInfo.js";
 import { cleanUp } from "./utils.js";
 
 export { mobile, laptop, cleanUp }
