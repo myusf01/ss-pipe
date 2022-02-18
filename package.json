@@ -12,7 +12,9 @@
     "gif-take-mobile": "npm run gif -- --device mobile",
     "gif-take-laptop": "npm run gif -- --device laptop",
     "mockup-mobile": "npm run mockup -- --device mobile",
-    "mockup-laptop": "npm run mockup -- --device laptop"
+    "mockup-laptop": "npm run mockup -- --device laptop",
+    "mockup-gif-laptop": "npm run gif-take-laptop -- -m",
+    "mockup-gif-mobile": "npm run gif-take-mobile -- -m"
   },
   "repository": {
     "type": "git",
