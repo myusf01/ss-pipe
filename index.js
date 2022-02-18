@@ -3,12 +3,13 @@ import { laptop, mobile } from './utils/index.js'
 import {
     takeScreenshot,
     takeGif,
-    mockupScreenshot
+    mockupScreenshot,
+    mockupGif
 } from "./libs/index.js";
 
 const command = new Commander()
 
-command.version('1.0.0', '-v, --version', "Print version")
+command.version('1.0.9', '-v, --version', "Print version")
     .usage('[OPTIONS]...')
     .option('-n, --name <filename>', 'Sets filename that will be exported', "file")
     .option('-t, --type <type>', `Defines type of screenshot will be taken,
@@ -25,7 +26,7 @@ command.version('1.0.0', '-v, --version', "Print version")
 const options = command.opts()
 
 const device = (options.device === 'mobile') ? mobile : laptop
-console.log(options);
+// console.log(options);
 
 if (options.type === 'screenshot') {
     if (options.mockup) {
@@ -35,5 +36,12 @@ if (options.type === 'screenshot') {
         takeScreenshot(options.url, options.name, device)
     }
 } else if (options.type === 'gif') {
-    takeGif(options.url, options.name, device)
+    if (options.mockup) {
+        console.log("gifli mockup");
+        mockupGif(options.url, options.name, device)
+    } else {
+        console.log("gifler");
+
+        takeGif(options.url, options.name, device)
+    }
 }

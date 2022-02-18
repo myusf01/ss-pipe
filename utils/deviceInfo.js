@@ -4,8 +4,9 @@ export const mobile = {
     height: 963,
     width: 464,
     canvas: './mockup/canvas-mobile.png',
-    mockup: './mockup/phone.png'
-
+    mockup: './mockup/phone.png',
+    bg: './mockup/bg-mobile.png'
+    
 }
 export const laptop = {
     x: 218,
@@ -13,6 +14,7 @@ export const laptop = {
     height: 942,
     width: 1505,
     canvas: './mockup/canvas-laptop.png',
-    mockup: './mockup/laptop.png'
+    mockup: './mockup/laptop.png',
+    bg: './mockup/bg-laptop.png'
 
 }
