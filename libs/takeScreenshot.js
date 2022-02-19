@@ -3,7 +3,7 @@ import puppeteer from 'puppeteer'
 export async function takeSS(url, filename, device) {
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
-  await page.setViewport({ width: device.width, height: device.height })
+  await page.setViewport({ width: device.screen_width, height: device.screen_height })
   await page.goto(url, {
     waitUntil: 'networkidle0'
   })

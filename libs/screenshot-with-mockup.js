@@ -4,7 +4,7 @@ import jimp from 'jimp'
 export async function takeSS(url, filename, device) {
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
-  await page.setViewport({ width: device.width, height: device.height })
+  await page.setViewport({ width: device.screen_width, height: device.screen_height })
 
   const canvas = await jimp.read(device.canvas)
   const mockup = await jimp.read(device.mockup)

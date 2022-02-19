@@ -1,8 +1,8 @@
 export const mobile = {
     x: 38,
     y: 80,
-    height: 963,
-    width: 464,
+    screen_height: 963,
+    screen_width: 464,
     canvas_height: 1086,
     canvas_width: 541,
     canvas: './mockup/canvas-mobile.png',
@@ -13,8 +13,8 @@ export const mobile = {
 export const laptop = {
     x: 218,
     y: 33,
-    height: 942,
-    width: 1505,
+    screen_height: 942,
+    screen_width: 1505,
     canvas_height: 1081,
     canvas_width: 1921,
     canvas: './mockup/canvas-laptop.png',

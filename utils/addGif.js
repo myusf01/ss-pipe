@@ -6,7 +6,7 @@ import { cleanUp } from './index.js'
 export function makeGif(listOfFrames, workDir, filename, device) {
 
 
-    const encoder = new GIFEncoder(device.width, device.height)
+    const encoder = new GIFEncoder(device.screen_width, device.screen_height)
     // create a temp folder to work on screenshots
     const file = fs.createWriteStream(`${filename}.gif`)
 

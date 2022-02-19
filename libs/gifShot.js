@@ -16,7 +16,7 @@ export async function recordGif(url, filename, device, frameCount = 20) {
 
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
-  await page.setViewport({ width: device.width, height: device.height })
+  await page.setViewport({ width: device.screen_width, height: device.screen_height })
 
   await page.goto(url)
 
