@@ -28,9 +28,11 @@
   },
   "homepage": "https://github.com/myusf01/ss-pipe#readme",
   "dependencies": {
+    "canvas": "^2.9.0",
     "commander": "^8.3.0",
     "get-pixels": "^3.3.3",
     "gif-encoder": "^0.7.2",
+    "gif-encoder-2": "^1.0.5",
     "jimp": "^0.16.1",
     "puppeteer": "^13.0.1"
   }
