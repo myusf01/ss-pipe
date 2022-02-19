@@ -1,7 +1,7 @@
 import GIFEncoder from 'gif-encoder-2'
 import pkg from 'canvas';
 const { createCanvas, Image } = pkg;
-import { createWriteStream, readdir } from "fs";
+import { createWriteStream, readdir, rmdirSync } from "fs";
 import { promisify } from "util";
 import * as path from 'path';
 
@@ -19,13 +19,6 @@ export async function newGif(workDir, filename, device) {
         const files = await readdirAsync(workDir)
         const [width, height] = [device.canvas_width, device.canvas_height]
 
-        // const [width, height] = await new Promise(resolve2 => {
-        //     const image = new Image()
-        //     image.onload = () => resolve2([image.width, image.height])
-        //     image.src = path.join(workDir, files[0])
-        // }).catch(console.log)
-        // console.log([width, height]);
-
         const dstPath = path.join(`${filename}.gif`)
         const writeStream = createWriteStream(dstPath)
 
@@ -36,7 +29,7 @@ export async function newGif(workDir, filename, device) {
         const encoder = new GIFEncoder(width, height)
         encoder.createReadStream().pipe(writeStream)
         encoder.start()
-        encoder.setDelay(200)
+        encoder.setDelay(100)
 
         const canvas = createCanvas(width, height)
         const ctx = canvas.getContext('2d')
@@ -52,5 +45,18 @@ export async function newGif(workDir, filename, device) {
                 image.src = path.join(workDir, file)
             })
         }
+
+        encoder.finish()
+        cleanUp(files, function (err) {
+            if (err) {
+                // if any error received log error
+                console.log(err)
+            } else {
+                // if any error didn't ocurred remove temp dir and log gif created then exit.
+                rmdirSync(workDir)
+                console.log('Gif created')
+                process.exit[0]
+            }
+        })
     })
 }

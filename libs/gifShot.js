@@ -21,7 +21,6 @@ export async function recordGif(url, filename, device, frameCount = 20) {
   await page.goto(url)
 
   for (let index = 0; index < frameCount; index++) {
-    console.log("Taking shots");
     await page.screenshot({ path: workDir + index + '.png' })
   }
   // after all screenshots took we will need to create an array and send them to addToGif function to generate gif.
@@ -31,7 +30,7 @@ export async function recordGif(url, filename, device, frameCount = 20) {
     .sort((a, b) => {
       return a - b
     })
-    .map(a => workDir + a.substr(0, a.length) + '.png')
+    .map(a => a.substr(0, a.length) + '.png')
 
   makeGif(listOfPNGs, workDir, filename, device)
   await browser.close()
