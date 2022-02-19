@@ -11,7 +11,7 @@ const command = new Commander()
 
 command.version('1.0.9', '-v, --version', "Print version")
     .usage('[OPTIONS]...')
-    .option('-n, --name <filename>', 'Sets filename that will be exported', "file")
+    .option('-n, --name <filename>', 'Sets filename that will be exported')
     .option('-t, --type <type>', `Defines type of screenshot will be taken,
                                  > screenshot - will take single shot,
                                  > gif        - will record gif
@@ -27,6 +27,10 @@ const options = command.opts()
 
 const device = (options.device === 'mobile') ? mobile : laptop
 // console.log(options);
+if(!options.name){
+    const hostname = (new URL(options.url).hostname).split('.')[0]
+    options.name = hostname
+}
 
 if (options.type === 'screenshot') {
     if (options.mockup) {
