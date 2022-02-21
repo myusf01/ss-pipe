@@ -22,9 +22,9 @@ export function makeGif(listOfFrames, workDir, filename, device) {
     function addToGif(images, counter = 0) {
         // getPixels will extract pixels from each screenshot we took.
         // callback func will expect pixels we extracted and errors if occurred during process
-
         getPixels(images[counter], function (err, pixels) {
             // encode data from pixels to our gif file
+
             encoder.addFrame(pixels.data)
             encoder.read()
 
@@ -47,6 +47,10 @@ export function makeGif(listOfFrames, workDir, filename, device) {
             } else {
                 // if they are not same repeat process again
                 addToGif(images, ++counter)
+            }
+
+            if (err) {
+                console.log(err);
             }
         })
     }

@@ -6,13 +6,7 @@ import { promisify } from "util";
 import * as path from 'path';
 
 import { cleanUp } from './index.js'
-
-
 const readdirAsync = promisify(readdir)
-// const imagesFolder = path.join(__dirname, 'input')
-// import getPixels from 'get-pixels'
-// import fs from 'fs'
-// import jimp from 'jimp'
 
 export async function newGif(workDir, filename, device) {
     return new Promise(async resolve1 => {

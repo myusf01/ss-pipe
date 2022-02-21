@@ -9,8 +9,8 @@ export function cleanUp(listOfPNGs, callback) {
 
   listOfPNGs.forEach(filepath => {
     // unlink method to remove files exists in array
-    console.log(filepath);
-    fs.unlink(`${workDir}${filepath}`, function (err) {
+    // console.log(filepath);
+    fs.unlink(`${filepath}`, function (err) {
       // decrease one from length
       i--
       if (err) {
@@ -23,3 +23,13 @@ export function cleanUp(listOfPNGs, callback) {
   })
 }
 
+export function listOfFiles(workDir, fileType) {
+
+  return fs
+    .readdirSync(workDir)
+    .map(a => a.substr(0, a.length - (fileType.length + 1)) + '')
+    .sort((a, b) => {
+      return a - b
+    })
+    .map(a => workDir + a.substr(0, a.length) + `.${fileType}`)
+}

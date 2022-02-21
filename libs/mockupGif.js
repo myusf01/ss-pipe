@@ -2,11 +2,13 @@
 import puppeteer from 'puppeteer'
 import jimp from 'jimp'
 import fs from 'fs'
-import { makeGifV2 } from "../utils/index.js";
+import { makeGifV2, makeGif, listOfFiles } from "../utils/index.js";
 
 
 export async function mockupGif(url, filename, device, frameCount = 20) {
   const workDir = './temp/'
+
+  const fileType = 'png'
 
   // check for if temp dir exist if if doesn't exist
   // create a temp dir
@@ -18,27 +20,31 @@ export async function mockupGif(url, filename, device, frameCount = 20) {
   const page = await browser.newPage()
   await page.setViewport({ width: device.screen_width, height: device.screen_height })
 
-  const bg = new jimp(canvas.bitmap.width, canvas.bitmap.height, '#f7efe8', (err, image) => {
+  const bg = new jimp(device.canvas_width, device.canvas_height, '#f7efe8', (err, image) => {
     if (err) throw err
 
   })
+  bg.rgba(true)
   const mockup = await jimp.read(device.mockup)
-  // canvas.opaque()
-  // canvas.background(0x00FFFFFF)
+
   await page.goto(url)
 
   console.log("Taking shots");
   for (let index = 0; index < frameCount; index++) {
-    const screenshot = await page.screenshot({ type: 'jpeg', path: workDir + index + '.jpeg' })
+    const screenshot = await page.screenshot({ type: fileType, path: workDir + index + `.${fileType}` })
     await jimp.read(screenshot).then(image => {
       bg
         .blit(image, device.x, device.y)
         .blit(mockup, 0, 0)
-        .writeAsync(workDir + index + '.jpeg')
+        .writeAsync(workDir + index + `.${fileType}`)
     }).catch(console.log)
 
   }
 
+  let listOfPNGs = listOfFiles(workDir, fileType)
+  // console.log(listOfPNGs);
+  
+  // makeGif(listOfPNGs, workDir, filename, device)
   makeGifV2(workDir, filename, device)
   await browser.close()
 
