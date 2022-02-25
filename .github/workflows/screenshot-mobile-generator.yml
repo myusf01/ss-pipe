@@ -1,4 +1,4 @@
-name: Screenshot Generator.
+name: screenshot-mobile.
 
 on:
   workflow_dispatch:
@@ -27,10 +27,10 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v2
 
-      - name: Create screenshot
+      - name: Create screenshot without mockup, mobile screen size.
         run: |
           npm install
-          npm run ss-take ${{ steps.pkg.outputs.packageName }} ${{ steps.pkg.outputs.packageHomepage }}
+          npm run screenshot-mobile -- --name ${{ steps.pkg.outputs.packageName }} --url ${{ steps.pkg.outputs.packageHomepage }}
 
       - name: Configure AWS
         uses: aws-actions/configure-aws-credentials@v1
