@@ -1,6 +1,6 @@
 {
   "name": "ss-pipe",
-  "version": "1.0.9",
+  "version": "1.5.9",
   "description": "ss-pipe line is a CI/CD workflow to produce screenshots for my projects.",
   "main": "index.js",
   "type": "module",
