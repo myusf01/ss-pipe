@@ -10,7 +10,7 @@ Built with NodeJS, AWS & Github Actions
 
 ## **Usage**
 
-## To use ss-pipe in local
+### To use ss-pipe in local
 
 > **Requirements**
 > Node v14.16
@@ -23,7 +23,7 @@ npm install
 
 You can use commands to take screenshots or just use npm scripts to  take screenshots.
 
-### Commands
+#### Commands
 
 ```bash
 
@@ -45,7 +45,7 @@ Options:
 
 ```
 
-### Scripts
+#### Scripts
 
 > **📍 Don't forget to add two dashes before adding options. See below for examples**
 
