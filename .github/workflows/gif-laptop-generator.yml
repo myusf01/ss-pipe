@@ -1,0 +1,43 @@
+name: gif-laptop-generator
+
+on:
+  workflow_dispatch:
+    inputs:
+      repo:
+        description: "Project repository that dispatched this workflow."
+        required: true
+
+jobs:
+  screenshot-generator:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout project repository
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ github.event.inputs.repo }}
+
+      - name: Store inputs from package.json
+        uses: myrotvorets/info-from-package-json-action@1.0.0
+        id: pkg
+
+      - name: Checkout generator repo
+        uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v2
+
+      - name: Create Gif, laptop screen size.
+        run: |
+          npm install
+          npm run gif-laptop -- --name ${{ steps.pkg.outputs.packageName }} --url ${{ steps.pkg.outputs.packageHomepage }}
+
+      - name: Configure AWS
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-central-1
+
+      - name: Upload generated image to S3 bucket.
+        run: aws s3 mv ${{ steps.pkg.outputs.packageName }}.gif s3://mysf-sspipe --acl public-read --cache-control no-cache

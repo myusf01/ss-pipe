@@ -1,14 +1,22 @@
 {
   "name": "ss-pipe",
-  "version": "1.0.0",
+  "version": "1.5.9",
   "description": "ss-pipe line is a CI/CD workflow to produce screenshots for my projects.",
-  "main": "takeScreenshot.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "screenshot": "node takeScreenshot.js",
-    "gif": "node gifShoot.js",
-    "ss-take": "npm run screenshot",
-    "gif-take": "npm run gif"
+    "ss-pipe": "node ./index.js",
+    "screenshot": "node ./index.js -t screenshot",
+    "gif": "node ./index.js -t gif ",
+    "mockup": "node ./index.js -t screenshot -m",
+    "screenshot-mobile": "npm run screenshot -- --device mobile",
+    "screenshot-laptop": "npm run screenshot -- --device laptop",
+    "screenshot-mockup-mobile": "npm run mockup -- --device mobile",
+    "screenshot-mockup-laptop": "npm run mockup -- --device laptop",
+    "gif-mobile": "npm run gif -- --device mobile",
+    "gif-laptop": "npm run gif -- --device laptop",
+    "gif-mockup-laptop": "npm run gif-laptop -- -m",
+    "gif-mockup-mobile": "npm run gif-mobile -- -m"
   },
   "repository": {
     "type": "git",
@@ -22,8 +30,12 @@
   },
   "homepage": "https://github.com/myusf01/ss-pipe#readme",
   "dependencies": {
+    "canvas": "^2.9.0",
+    "commander": "^8.3.0",
     "get-pixels": "^3.3.3",
     "gif-encoder": "^0.7.2",
+    "gif-encoder-2": "^1.0.5",
+    "jimp": "^0.16.1",
     "puppeteer": "^13.0.1"
   }
 }
