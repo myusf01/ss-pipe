@@ -27,8 +27,9 @@ const options = command.opts()
 
 const device = (options.device === 'mobile') ? mobile : laptop
 // console.log(options);
-if(!options.name){
-    const hostname = (new URL(options.url).hostname).split('.')[0]
+
+if (!options.name) {
+    const hostname = (new URL(options.url).hostname).split('.').join('')
     options.name = hostname
 }
 
@@ -41,11 +42,8 @@ if (options.type === 'screenshot') {
     }
 } else if (options.type === 'gif') {
     if (options.mockup) {
-        console.log("gifli mockup");
         mockupGif(options.url, options.name, device)
     } else {
-        console.log("gifler");
-
         takeGif(options.url, options.name, device)
     }
 }
