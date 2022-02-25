@@ -17,7 +17,7 @@ command.version('1.0.9', '-v, --version', "Print version")
                                  > gif        - will record gif
                             `,
         'screenshot')
-    .option('-m, --mockup', 'Adds mockup to result.', 'Default')
+    .option('-m, --mockup', 'Adds mockup to result.')
     .option('-d, --device <device_type>', 'Sets device type mobile or laptop', "laptop")
     .option('-u, --url <url>', 'Sets url that will be recorded', 'https://myusuf.net/')
     // .option('-c, --custom <value>', 'Overwriting value.', 'Default')

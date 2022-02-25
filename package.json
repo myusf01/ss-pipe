@@ -2,9 +2,10 @@
   "name": "ss-pipe",
   "version": "1.0.9",
   "description": "ss-pipe line is a CI/CD workflow to produce screenshots for my projects.",
-  "main": "takeScreenshot.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
+    "ss-pipe": "node ./index.js",
     "screenshot": "node ./index.js -t screenshot",
     "gif": "node ./index.js -t gif ",
     "mockup": "node ./index.js -t screenshot -m",
