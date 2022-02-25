@@ -4,11 +4,6 @@ ss-pipe is a command line app and a CI/CD workflow to produce screenshots for my
 You can take screenshots or record gifs of any url and add your recordings to a laptop or mobile mockup for more stylized content.
 ss-pipe uses Github Actions to record shots and then store to a AWS S3 bucket. Also you can run in your local to do recordings.
 
-> 📌
->
-> You should add Cache-Control to no-cache in metadata otherwise Github will use cached image.
-> So that linked image will not be updated in README file.
-
 ## 🧱 Tech used
 
 Built with NodeJS, AWS & Github Actions
@@ -69,9 +64,15 @@ npm run screenshot-mobile
         gif-mockup-mobile
 
 ```
+
 ## To use ss-pipe with AWS and Github Actions
 
 🔨 Processing documentation, will be here soon.
+> 📌
+>
+> You should add Cache-Control to no-cache in metadata otherwise Github will use cached image.
+> So that linked image will not be updated in README file.
+
 ## Credits
 
 ✨ Thanks to [Claudia Cachay-Osorio](https://github.com/claudiacachayosorio/demo-gifs) and [Aimeri Baddouh](https://dev.to/aimerib/using-puppeteer-to-make-animated-gifs-of-page-scrolls-1lko) for their great works.
