@@ -1,4 +1,4 @@
-name: gif-mockup-laptop
+name: gif-mockup-laptop-generator
 
 on:
   workflow_dispatch:

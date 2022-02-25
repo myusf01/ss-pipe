@@ -1,4 +1,4 @@
-name: screenshot-mobile.
+name: screenshot-mobile-generator
 
 on:
   workflow_dispatch:

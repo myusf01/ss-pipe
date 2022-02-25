@@ -1,4 +1,4 @@
-name: gif-mockup-mobile
+name: gif-mockup-mobile-generator
 
 on:
   workflow_dispatch:

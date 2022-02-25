@@ -1,4 +1,4 @@
-name: gif-mobile
+name: gif-mobile-generator
 
 on:
   workflow_dispatch:

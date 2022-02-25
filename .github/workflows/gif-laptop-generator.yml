@@ -1,4 +1,4 @@
-name: gif-laptop
+name: gif-laptop-generator
 
 on:
   workflow_dispatch:

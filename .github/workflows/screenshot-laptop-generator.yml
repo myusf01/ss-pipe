@@ -1,4 +1,4 @@
-name: screenshot-laptop.
+name: screenshot-laptop-generator
 
 on:
   workflow_dispatch:

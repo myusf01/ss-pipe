@@ -1,4 +1,4 @@
-name: screenshot-mockup-mobile.
+name: screenshot-mockup-mobile-generator
 
 on:
   workflow_dispatch:
