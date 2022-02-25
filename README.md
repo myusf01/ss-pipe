@@ -13,6 +13,7 @@ Built with NodeJS, AWS & Github Actions
 ### To use ss-pipe in local
 
 > **Requirements**
+> 
 > Node v14.16
 
 After cloning ss-pipe to your machine project will be ready to use after installing.
@@ -47,7 +48,9 @@ Options:
 
 #### Scripts
 
-> **📍 Don't forget to add two dashes before adding options. See below for examples**
+> 📌
+> 
+> **Don't forget to add two dashes before adding options. See below for examples**
 
 ```bash
 npm run screenshot-mobile -- --name <filename> --url <url>
