@@ -26,15 +26,6 @@ export async function recordGif(url, filename, device, frameCount = 20) {
   }
   // after all screenshots took we will need to create an array and send them to addToGif function to generate gif.
   let listOfPNGs = listOfFiles(workDir, fileType)
-
-  // let listOfPNGs = fs
-  //   .readdirSync(workDir)
-  //   .map(a => a.substr(0, a.length - 4) + '')
-  //   .sort((a, b) => {
-  //     return a - b
-  //   })
-  //   .map(a => a.substr(0, a.length) + '.png')
-
   makeGif(listOfPNGs, workDir, filename, device)
   await browser.close()
 

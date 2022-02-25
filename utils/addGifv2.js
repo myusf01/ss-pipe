@@ -4,8 +4,8 @@ const { createCanvas, Image } = pkg;
 import { createWriteStream, readdir, rmdirSync } from "fs";
 import { promisify } from "util";
 import * as path from 'path';
-
 import { cleanUp } from './index.js'
+
 const readdirAsync = promisify(readdir)
 
 export async function newGif(workDir, filename, device) {

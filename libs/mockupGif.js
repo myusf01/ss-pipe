@@ -24,7 +24,7 @@ export async function mockupGif(url, filename, device, frameCount = 20) {
     if (err) throw err
 
   })
-  bg.rgba(true)
+
   const mockup = await jimp.read(device.mockup)
 
   await page.goto(url)
@@ -43,9 +43,9 @@ export async function mockupGif(url, filename, device, frameCount = 20) {
 
   let listOfPNGs = listOfFiles(workDir, fileType)
   // console.log(listOfPNGs);
-  
-  // makeGif(listOfPNGs, workDir, filename, device)
-  makeGifV2(workDir, filename, device)
+
+  makeGif(listOfPNGs, workDir, filename, device)
+  // makeGifV2(workDir, filename, device)
   await browser.close()
 
 }

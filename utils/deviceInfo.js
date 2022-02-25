@@ -8,7 +8,7 @@ export const mobile = {
     canvas: './mockup/canvas-mobile.png',
     mockup: './mockup/phone.png',
     bg: './mockup/bg-mobile.png'
-    
+
 }
 export const laptop = {
     x: 218,
