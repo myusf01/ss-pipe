@@ -13,7 +13,7 @@ Built with NodeJS, AWS & Github Actions
 ### To use ss-pipe in local
 
 > **Requirements**
-> 
+>
 > Node v14.16
 
 After cloning ss-pipe to your machine project will be ready to use after installing.
@@ -49,7 +49,7 @@ Options:
 #### Scripts
 
 > 📌
-> 
+>
 > **Don't forget to add two dashes before adding options. See below for examples**
 
 ```bash
@@ -70,11 +70,41 @@ npm run screenshot-mobile
 
 ## To use ss-pipe with AWS and Github Actions
 
-🔨 Processing documentation, will be here soon.
+### Setting up AWS and Github Actions
+
+> Most of this part is from this documentation [link](https://github.com/claudiacachayosorio/demo-gifs#installation)
+
+#### AWS Setup
+
+1. First create an S3 bucket with "Block Public Access" setting disabled. In IAM console create a new policy using this [template](https://gist.github.com/myusf01/3146258b08fc2ad8ab33bc6cd7e48d60). Be sure change `BUCKET_NAME` to your S3 bucket's name.
+2. Then create a new user by your new policy assigned.
+3. Then you should create a AWS S3 bucket with sth....
+
+#### Generator Setup
+
+1. Fork this repository.
+2. In repository settings create two secrets names as `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` by assigning IAM credentials to them.
+3. Then change these lines in workflows.
+4. > `aws-region: eu-central-1` to your S3 bucket region
+5. > `[...] s3://mysf-sspipe --acl public-read --cache-control no-cache` change name to your buckets name.
+
+#### Project Setup
+
+This settings are for the project you want to take screenshot or record GIF.
+
+1. Get any dispatcher template from `/template-workflow` folder and add file to your `/.github/workflows` folder.
+2. Then create a personal access token in GitHub Developer settings with repo and workflow permissions.
+3. Create a secret for your project named FLOW_TOKEN and add your token.
+
 > 📌
 >
-> You should add Cache-Control to no-cache in metadata otherwise Github will use cached image.
+> You should set Cache-Control to no-cache in metadata otherwise Github will use cached image.
 > So that linked image will not be updated in README file.
+
+> 📌
+>
+> Be sure to your `package.json` have `name` and `homepage` fields filled.
+> Workflow will use `name` to name the file and `homepage` to get link totake shot.
 
 ## Credits
 
