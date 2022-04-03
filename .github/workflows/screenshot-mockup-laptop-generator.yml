@@ -1,6 +1,5 @@
 name: screenshot-mockup-laptop-generator
 
-
 on:
   workflow_dispatch:
     inputs:
@@ -31,7 +30,7 @@ jobs:
       - name: Create screenshot with mockup, laptop screen size.
         run: |
           npm install
-          npm run screenshot-mockup-laptop -- --name ${{ steps.pkg.outputs.packageName }} --url ${{ steps.pkg.outputs.packageHomepage }}
+          npm run screenshot-mockup-laptop -- --name ${{ steps.pkg.outputs.packageName }}-laptop --url ${{ steps.pkg.outputs.packageHomepage }}
 
       - name: Configure AWS
         uses: aws-actions/configure-aws-credentials@v1
