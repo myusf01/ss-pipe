@@ -30,7 +30,7 @@ jobs:
       - name: Create Gif with mockup, laptop screen size.
         run: |
           npm install
-          npm run gif-mockup-laptop -- --name ${{ steps.pkg.outputs.packageName }} --url ${{ steps.pkg.outputs.packageHomepage }}
+          npm run gif-mockup-laptop -- --name ${{ steps.pkg.outputs.packageName }}-laptop --url ${{ steps.pkg.outputs.packageHomepage }}
 
       - name: Configure AWS
         uses: aws-actions/configure-aws-credentials@v1
@@ -40,4 +40,4 @@ jobs:
           aws-region: eu-central-1
 
       - name: Upload generated image to S3 bucket.
-        run: aws s3 mv ${{ steps.pkg.outputs.packageName }}.gif s3://mysf-sspipe --acl public-read --cache-control no-cache
+        run: aws s3 mv ${{ steps.pkg.outputs.packageName }}-laptop.gif s3://mysf-sspipe --acl public-read --cache-control no-cache
