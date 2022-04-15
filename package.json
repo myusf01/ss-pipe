@@ -7,6 +7,7 @@
   "scripts": {
     "ss-pipe": "node ./index.js",
     "screenshot": "node ./index.js -t screenshot",
+    "banner": "node ./index.js -t banner",
     "gif": "node ./index.js -t gif ",
     "mockup": "node ./index.js -t screenshot -m",
     "screenshot-mobile": "npm run screenshot -- --device mobile",

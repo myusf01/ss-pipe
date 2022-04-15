@@ -40,8 +40,8 @@ if (options.type === 'screenshot') {
 
         takeScreenshot(options.url, options.name, device)
     }
-} else if (options.type === 'gif') {
-    if (options.mockup) {
+} else if (options.type === "banner") {
+  doubleShot(options.url, options.name);
         mockupGif(options.url, options.name, device)
     } else {
         takeGif(options.url, options.name, device)
